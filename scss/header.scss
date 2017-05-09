@@ -3,21 +3,87 @@
 
 body {
 	position: relative;
-	font: 18px/24px $main_font;
+	font: 16px/24px $main_font;
 	color: $main_text_color;
 	background-color: #fff;
+}
+
+.main_wrap{
+    overflow: hidden;
 }
 
 body.unscroll{
 	overflow: hidden;
 }
 
+.text--title{
+    font-family: $bold_font;
+}
+
+
+.header_main{
+    font-size: 80px;
+    line-height: 100px;
+    letter-spacing: .16em;
+    color: $second_color;
+    text-transform: uppercase;
+}
+
+.header{
+    font-size: 72px;
+    line-height: 80px;
+    color: $second_color;
+    margin-left: -4px;
+}
+
+.header_sm{
+    font-size: 48px;
+    line-height: 50px;
+    color: $second_color;
+}
+
+.description{
+    font-size: 36px;
+    line-height: 40px;
+    color: $second_color;
+}
+
+.title{
+    color: $second_color;
+}
+
+.text--purple{
+    color: $main_color;
+}
+
+.list_item{
+    li{
+        padding-left: 15px;
+        position: relative;
+        &:before{
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            top: 12px;
+            left: 0;
+            background: url(../img/list.png);
+        }
+    }
+}
+
+.item--margined{
+    margin-left: 97px;
+}
+
+// ==========================
+
 .md-modal.md-show{
     opacity: 1;
-  }
+}
 .md-modal{
     opacity: 0;
-  }
+}
 
 /* SCROLL BAR STYLES*/
 ::-webkit-scrollbar {
@@ -79,19 +145,124 @@ body.unscroll{
 }
 
 .btn{
-	width:300px;
-	height: 60px;
+	width: 181px;
+    height: 50px;
 	background-color: $main_color;
 
-	color: #000;
-	font: 20px $main_font;
-	text-transform: uppercase;
+	color: #fff;
+	font: 14px/20px $bold_font;
+    letter-spacing: .15em;
 }
 
+
+
 .btn:hover{
-	background-color: $second_color;
+	background-color: #a584ff;
+    box-shadow: 0 12px 27px #cab7ff;
 }
 
 .btn:active{
-	background-color: #edcc00;
+	background-color: #5f37ca;
+    box-shadow: 0 12px 27px #cab7ff;
+}
+
+.call_btn{
+    width: 181px;
+    height: 40px;
+    border: 2px solid #f2f2f6;
+    font: 16px $bold_font;
+    letter-spacing: .05em;
+    color: #000;
+    &:hover{
+        border: 3px solid #7f58e9;
+        color: $main_color;
+    }
+    &:active{
+        background-color: #5f37ca;
+        color: #fff;
+    }
+}
+
+#sec_01{
+    position: relative;
+    padding: 35px 0 430px;
+    overflow: hidden;
+    .menu{
+        float: right;
+        line-height: 40px;
+        li{display:inline-block}
+        li+li{margin-left: 24px;}
+        a{
+            color: #000000;
+            &:hover{
+                color: $main_color;
+            }
+        }
+    }
+    .phones_block{
+        margin-left: 145px;
+        margin-top: -4px;
+        float: right;
+        text-align: center;
+        width: 181px;
+    }
+    .tel{
+        color: #000;
+        font-size: 14px;
+        line-height: 30px;
+        letter-spacing: .05em;
+        &:hover{
+            color: $main_color;
+        }
+    }
+    .top{
+        margin-bottom: 275px;
+    }
+
+    .underheader{
+        font-size: 30px;
+        letter-spacing: .32em;
+        color: #000;
+        margin: 10px 0 80px;
+    }
+    .btn{
+        margin: 0 auto;
+    }
+    .btn_dwn{
+        width: 80px;
+        margin-top: 205px;
+        display: inline-block;
+        color: #000000;
+        font-size: 12px;
+        text-align: center;
+        letter-spacing: .32em;
+        span{
+            display: block;
+            margin-bottom: 10px;
+            transition: all .3s;
+        }
+        img{transition: all .3s;}
+        &:hover{
+            span{
+                font-size: 16px;
+            }
+            img{
+                transform: translateY(-5px)
+            }
+        }
+    }
+
+    .glitch_wrap{
+        position: absolute;
+        top: 44px;
+        left: 50%;
+        width: 1856px;
+        height: 1297px;
+        transform: translateX(-50%);
+        @include imgGlitch(img_glitch_main, 4, 1856, 1297, 0, 0);
+        img{ animation-play-state: paused !important}
+    }
+    .glitch_wrap.animated{
+        img{ animation-play-state: running !important}
+    }
 }

@@ -1,11 +1,61 @@
 body {
   position: relative;
-  font: 18px/24px "Roboto", sans-serif;
-  color: #7b7b7b;
+  font: 16px/24px "Gilroy-Light", sans-serif;
+  color: #989898;
   background-color: #fff; }
+
+.main_wrap {
+  overflow: hidden; }
 
 body.unscroll {
   overflow: hidden; }
+
+.text--title {
+  font-family: "Gilroy-ExtraBold", sans-serif; }
+
+.header_main {
+  font-size: 80px;
+  line-height: 100px;
+  letter-spacing: .16em;
+  color: #000;
+  text-transform: uppercase; }
+
+.header {
+  font-size: 72px;
+  line-height: 80px;
+  color: #000;
+  margin-left: -4px; }
+
+.header_sm {
+  font-size: 48px;
+  line-height: 50px;
+  color: #000; }
+
+.description {
+  font-size: 36px;
+  line-height: 40px;
+  color: #000; }
+
+.title {
+  color: #000; }
+
+.text--purple {
+  color: #7f58e9; }
+
+.list_item li {
+  padding-left: 15px;
+  position: relative; }
+  .list_item li:before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    top: 12px;
+    left: 0;
+    background: url(../img/list.png); }
+
+.item--margined {
+  margin-left: 97px; }
 
 .md-modal.md-show {
   opacity: 1; }
@@ -25,11 +75,11 @@ body.unscroll {
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 0px;
   border-radius: 0px;
-  background: #1988cc;
+  background: #7f58e9;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
 
 ::-webkit-scrollbar-thumb:window-inactive {
-  background: #1988cc; }
+  background: #7f58e9; }
 
 /* BUTTON scrollUP SYLES*/
 #scrollup {
@@ -54,7 +104,7 @@ body.unscroll {
     transition: all 0.5s; }
 
 #scrollup:hover svg {
-  fill: #1988cc; }
+  fill: #7f58e9; }
 
 .hidden {
   height: 0;
@@ -67,18 +117,174 @@ body.unscroll {
   position: fixed;
   top: 0;
   left: 0;
-  background: #1988cc; }
+  background: #7f58e9; }
 
 .btn {
-  width: 300px;
-  height: 60px;
-  background-color: #1988cc;
-  color: #000;
-  font: 20px "Roboto", sans-serif;
-  text-transform: uppercase; }
+  width: 181px;
+  height: 50px;
+  background-color: #7f58e9;
+  color: #fff;
+  font: 14px/20px "Gilroy-ExtraBold", sans-serif;
+  letter-spacing: .15em; }
 
 .btn:hover {
-  background-color: #ffec3d; }
+  background-color: #a584ff;
+  -webkit-box-shadow: 0 12px 27px #cab7ff;
+  box-shadow: 0 12px 27px #cab7ff; }
 
 .btn:active {
-  background-color: #edcc00; }
+  background-color: #5f37ca;
+  -webkit-box-shadow: 0 12px 27px #cab7ff;
+  box-shadow: 0 12px 27px #cab7ff; }
+
+.call_btn {
+  width: 181px;
+  height: 40px;
+  border: 2px solid #f2f2f6;
+  font: 16px "Gilroy-ExtraBold", sans-serif;
+  letter-spacing: .05em;
+  color: #000; }
+  .call_btn:hover {
+    border: 3px solid #7f58e9;
+    color: #7f58e9; }
+  .call_btn:active {
+    background-color: #5f37ca;
+    color: #fff; }
+
+#sec_01 {
+  position: relative;
+  padding: 35px 0 430px;
+  overflow: hidden; }
+  #sec_01 .menu {
+    float: right;
+    line-height: 40px; }
+    #sec_01 .menu li {
+      display: inline-block; }
+    #sec_01 .menu li + li {
+      margin-left: 24px; }
+    #sec_01 .menu a {
+      color: #000000; }
+      #sec_01 .menu a:hover {
+        color: #7f58e9; }
+  #sec_01 .phones_block {
+    margin-left: 145px;
+    margin-top: -4px;
+    float: right;
+    text-align: center;
+    width: 181px; }
+  #sec_01 .tel {
+    color: #000;
+    font-size: 14px;
+    line-height: 30px;
+    letter-spacing: .05em; }
+    #sec_01 .tel:hover {
+      color: #7f58e9; }
+  #sec_01 .top {
+    margin-bottom: 275px; }
+  #sec_01 .underheader {
+    font-size: 30px;
+    letter-spacing: .32em;
+    color: #000;
+    margin: 10px 0 80px; }
+  #sec_01 .btn {
+    margin: 0 auto; }
+  #sec_01 .btn_dwn {
+    width: 80px;
+    margin-top: 205px;
+    display: inline-block;
+    color: #000000;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: .32em; }
+    #sec_01 .btn_dwn span {
+      display: block;
+      margin-bottom: 10px;
+      -webkit-transition: all .3s;
+      transition: all .3s; }
+    #sec_01 .btn_dwn img {
+      -webkit-transition: all .3s;
+      transition: all .3s; }
+    #sec_01 .btn_dwn:hover span {
+      font-size: 16px; }
+    #sec_01 .btn_dwn:hover img {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px); }
+  #sec_01 .glitch_wrap {
+    position: absolute;
+    top: 44px;
+    left: 50%;
+    width: 1856px;
+    height: 1297px;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%); }
+
+@-webkit-keyframes img_glitch_main-anim-1 {
+  0% {
+    clip: rect(250px, 1856px, 471px, 0); }
+  25% {
+    clip: rect(180px, 1856px, 895px, 0); }
+  50% {
+    clip: rect(318px, 1856px, 858px, 0); }
+  75% {
+    clip: rect(598px, 1856px, 296px, 0); }
+  100% {
+    clip: rect(203px, 1856px, 895px, 0); } }
+
+@keyframes img_glitch_main-anim-1 {
+  0% {
+    clip: rect(250px, 1856px, 471px, 0); }
+  25% {
+    clip: rect(180px, 1856px, 895px, 0); }
+  50% {
+    clip: rect(318px, 1856px, 858px, 0); }
+  75% {
+    clip: rect(598px, 1856px, 296px, 0); }
+  100% {
+    clip: rect(203px, 1856px, 895px, 0); } }
+
+@-webkit-keyframes img_glitch_main-anim-2 {
+  0% {
+    clip: rect(897px, 1856px, 1128px, 0); }
+  25% {
+    clip: rect(81px, 1856px, 320px, 0); }
+  50% {
+    clip: rect(813px, 1856px, 186px, 0); }
+  75% {
+    clip: rect(815px, 1856px, 1047px, 0); }
+  100% {
+    clip: rect(350px, 1856px, 198px, 0); } }
+
+@keyframes img_glitch_main-anim-2 {
+  0% {
+    clip: rect(897px, 1856px, 1128px, 0); }
+  25% {
+    clip: rect(81px, 1856px, 320px, 0); }
+  50% {
+    clip: rect(813px, 1856px, 186px, 0); }
+  75% {
+    clip: rect(815px, 1856px, 1047px, 0); }
+  100% {
+    clip: rect(350px, 1856px, 198px, 0); } }
+    #sec_01 .glitch_wrap > img {
+      position: absolute;
+      top: 0px;
+      left: 0px; }
+    #sec_01 .glitch_wrap > img:nth-child(2),
+    #sec_01 .glitch_wrap > img:nth-child(3) {
+      clip: rect(0, 0, 0, 0); }
+    #sec_01 .glitch_wrap > img:nth-child(2) {
+      left: 2px;
+      -webkit-animation: img_glitch_main-anim-1 2s infinite linear alternate-reverse;
+      animation: img_glitch_main-anim-1 2s infinite linear alternate-reverse; }
+    #sec_01 .glitch_wrap > img:nth-child(3) {
+      left: -2px;
+      -webkit-animation: img_glitch_main-anim-2 3s infinite linear alternate-reverse;
+      animation: img_glitch_main-anim-2 3s infinite linear alternate-reverse; }
+    #sec_01 .glitch_wrap img {
+      -webkit-animation-play-state: paused !important;
+      animation-play-state: paused !important; }
+  #sec_01 .glitch_wrap.animated img {
+    -webkit-animation-play-state: running !important;
+    animation-play-state: running !important; }

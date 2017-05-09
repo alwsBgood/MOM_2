@@ -198,14 +198,145 @@ $('.md-overlay').click(function() {
 
 //Sliders
 
-$('.slider').slick({
+$('.slider_event_mu-photo-1').slick({
   slidesToShow: 1,
-  dots: true,
+  dots: false,
+  arrows: true,
+  infinite: true,
+  slidesToScroll: 1,
+  fade: true,
+});
+
+$('.slider_event_mu-photo-2').slick({
+  slidesToShow: 1,
+  dots: false,
+  arrows: true,
+  infinite: true,
+  slidesToScroll: 1,
+  fade: true,
+});
+
+$('.slider_event_mu-photo-3').slick({
+  slidesToShow: 1,
+  dots: false,
+  arrows: true,
+  infinite: true,
+  slidesToScroll: 1,
+  fade: true,
+});
+
+
+$('.slider_event_mu').slick({
+  slidesToShow: 1,
+  dots: false,
   arrows: false,
   infinite: true,
   slidesToScroll: 1,
   fade: true,
-  adaptiveHeight: true
+  swipe: false,
+  asNavFor: '.slider_control_mu'
+});
+
+
+$('.slider_control_mu').slick({
+  slidesToShow: 3,
+  dots: false,
+  autoplay: true,
+  autoplaySpeed: 1000,
+  arrows: true,
+  slidesToScroll: 1,
+  focusOnSelect: true,
+  asNavFor: '.slider_event_mu'
+});
+
+
+$('.slider_control_ha').slick({
+  slidesToShow: 3,
+  dots: false,
+  autoplay: true,
+  autoplaySpeed: 1000,
+  arrows: true,
+  slidesToScroll: 1,
+  focusOnSelect: true,
+  asNavFor: '.slider_event_ha'
+});
+
+
+$('.slider_event_ha').slick({
+  slidesToShow: 1,
+  dots: false,
+  arrows: false,
+  infinite: true,
+  slidesToScroll: 1,
+  fade: true,
+  swipe: false,
+  asNavFor: '.slider_control_ha'
+});
+
+
+$('.slider_event_ha-photo-1').slick({
+  slidesToShow: 1,
+  dots: false,
+  arrows: true,
+  infinite: true,
+  slidesToScroll: 1,
+  fade: true,
+});
+
+
+$('.slider_event_ha-photo-2').slick({
+  slidesToShow: 1,
+  dots: false,
+  arrows: true,
+  infinite: true,
+  slidesToScroll: 1,
+  fade: true,
+});
+
+
+$('.slider_event_ha-photo-3').slick({
+  slidesToShow: 1,
+  dots: false,
+  arrows: true,
+  infinite: true,
+  slidesToScroll: 1,
+  fade: true,
+});
+
+
+$(".slider_testimonial").slick({
+  slidesToShow: 1,
+  dots: true,
+  arrows: true,
+  infinite: true,
+  slidesToScroll: 1,
+  fade: true,
+  customPaging : function(slider, i) {
+    var thumb = $(slider.$slides[i]).data();
+    return '<a>' + (i+1) + '</a>';
+  },
+});
+
+
+//Tabs
+
+setTimeout(function(){
+  $('.tabs').tabslet({
+    animation: true
+  })
+})
+
+
+// Accordion
+
+$('.accordion_btn').click(function(event) {
+  $('.accordion_items').slideToggle();
+  $(this).toggleClass('opened');
+  if($(this).hasClass('opened')){
+    $('.accordion_btn span').html('Скрыть')
+  } else {
+    $('.accordion_btn span').html('Посмотреть все')
+  }
 });
 
 // Perfect Pxel
