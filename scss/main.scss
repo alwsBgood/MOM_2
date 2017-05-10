@@ -62,13 +62,13 @@
     margin-top: 24px;
   }
   .glitch_block-1{
-    @include imgGlitch(img_glitch_main, 10, 49, 44, 3, 0);
+    @include imgGlitch(img_glitch_main_sec-02, 10, 49, 44, 3, 0);
   }
   .glitch_block-2{
-    @include imgGlitch(img_glitch_main, 10, 43, 43, 3, 0);
+    @include imgGlitch(img_glitch_main_sec-02, 10, 43, 43, 3, 0);
   }
   .glitch_block-3{
-    @include imgGlitch(img_glitch_main, 10, 38, 46, 3, 0);
+    @include imgGlitch(img_glitch_main_sec-02, 10, 38, 46, 3, 0);
   }
   .menu_li:nth-child(1):hover{.menu_main{color: #d31843;}}
   .menu_li:nth-child(2):hover{.menu_main{color: #015ffd;}}
@@ -82,6 +82,7 @@
     margin-left: 40px;
   }
   img+img{margin-left: 98px}
+  .mobile{display: none}
 }
 
 #sec_04{
@@ -102,7 +103,7 @@
     position: relative;
     width: 360px;
     height: 350px;
-    @include imgGlitch(img_glitch_main, 4, 360, 350, 3, 0);
+    @include imgGlitch(img_glitch_main-sec-04, 4, 360, 350, 3, 0);
   }
   .menu{
     margin-top: 245px;
@@ -181,6 +182,7 @@
   }
   .list_item{
     display: inline-block;
+    vertical-align: top;
     width: 46%;
     li+li{margin-top: 19px;}
   }
@@ -197,6 +199,9 @@
       margin: 10px;
       vertical-align: middle;
     }
+  }
+  .header{
+    margin-bottom: 20px;
   }
   .accordion_btn{
     float: right;
@@ -220,6 +225,13 @@
       transform: rotate(180deg);
     }
   }
+  .icons{
+    display:none;
+    img{
+      margin: 10px;
+      vertical-align: middle;
+    }
+  }
 }
 
 #sec_07{
@@ -228,6 +240,7 @@
   background-repeat: no-repeat;
   background-position: top center;
   background-image: url(../img/sec_07-bg.png);
+  .mobile{display:none}
   .header_main{
     margin: 60px 0 20px;
     letter-spacing: .2em;
@@ -390,7 +403,7 @@
 }
 
 #sec_10{
-  padding: 100px 0 140px;
+  padding: 100px 0 105px;
   background-color: #f2f2f6;
   .header{
     margin: 40px 0 20px;
@@ -450,6 +463,70 @@
     margin-bottom: 20px;
   }
   .header_sm+.text{font-size: 18px;}
+
+  .timer{
+    width: 424px;
+    height: 424px;
+    margin: 25px 0 0 -30px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 64px;
+    .timer_big{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      animation: rotate_inner 260s infinite linear;
+    }
+    .timer_inner{
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-image: url(../img/timer_inner.png);
+
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0,0,0,.5);
+      width: 296px;
+      height: 296px;
+      padding: 100px 40px;
+      position: relative;
+      animation: rotate_inner 60s infinite linear;
+      &:before{
+        content: "";
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        margin-left: -9px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 9px 12px 9px;
+        border-color: transparent transparent #000000 transparent;
+      }
+    }
+    .timer_block{
+      animation: rotate_inner_opocite 60s infinite linear;
+    }
+    .timer_header{
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .2em;
+      line-height: 18px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@keyframes rotate_inner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate_inner_opocite {
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 #sec_11{
@@ -464,7 +541,7 @@
     width: 360px;
     height: 290px;
     float: right;
-    @include imgGlitch(img_glitch_main, 10, 360, 290, 3, 0);
+    @include imgGlitch(img_glitch_main_sec-11, 10, 360, 290, 3, 0);
   }
 
   .header{
@@ -643,7 +720,7 @@
       width: 15px;
       position: absolute;
       left: 0;
-      top: 0;
+      top: 3px;
     }
     &:hover{color: $main_color;}
   }
@@ -658,7 +735,7 @@
       width: 15px;
       position: absolute;
       left: 0;
-      top: 0;
+      top: 3px;
     }
     &:hover{color: $main_color;}
   }
@@ -666,7 +743,10 @@
   .call_btn{
     border-color: #fff;
     float: right;
-    margin-top: -3px;
+    margin-top: -9px;
+    &:hover{
+      border-color: $main_color;
+    }
   }
 }
 
@@ -684,7 +764,7 @@ footer{
   }
   .logo_rezart{
     margin-top: 3px;
-    margin-left: 25px;
+    margin-left: 0px;
     width: 55px;
     // margin-right: 20px;
     float: right;

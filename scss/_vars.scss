@@ -51,3 +51,46 @@ $bold_font: 'Gilroy-ExtraBold', sans-serif;
     animation: #{$name}-anim-2 3s infinite linear alternate-reverse;
   }
 }
+
+
+@mixin imgGlitchLong($name, $intensity, $width, $height, $top, $left) {
+  
+  $steps: $intensity;
+  
+  // Ensure the @keyframes are generated at the root level
+  @at-root {
+    // We need two different ones
+    @for $i from 1 through 2 {
+      @keyframes #{$name}-anim-#{$i} {
+        @for $i from 0 through $steps {
+          #{percentage($i*(1/$steps))} {
+            clip: rect(
+              random($height)+px,
+              $width+px,
+              random($height)+px,
+              0
+            );
+          }
+        }
+      }
+    }
+  }
+  
+  > img {
+    position: absolute;
+    top: $top+px;
+    left: $left+px;
+  }
+  > img:nth-child(2),
+  > img:nth-child(3){
+    clip: rect(0, 0, 0, 0); 
+  }
+  > img:nth-child(2) {
+    left: ($left + 10) + px;
+    animation: #{$name}-anim-1 50s infinite linear alternate-reverse;
+  }
+  > img:nth-child(3) {
+    left: ($left - 10) + px;
+    animation: #{$name}-anim-2 60s infinite linear alternate-reverse;
+  }
+}

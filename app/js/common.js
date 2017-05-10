@@ -241,7 +241,7 @@ $('.slider_event_mu').slick({
 $('.slider_control_mu').slick({
   slidesToShow: 3,
   dots: false,
-  autoplay: true,
+  // autoplay: true,
   autoplaySpeed: 1000,
   arrows: true,
   slidesToScroll: 1,
@@ -253,7 +253,7 @@ $('.slider_control_mu').slick({
 $('.slider_control_ha').slick({
   slidesToShow: 3,
   dots: false,
-  autoplay: true,
+  // autoplay: true,
   autoplaySpeed: 1000,
   arrows: true,
   slidesToScroll: 1,
@@ -303,6 +303,36 @@ $('.slider_event_ha-photo-3').slick({
   fade: true,
 });
 
+$('.mobile_slider_03').slick({
+  slidesToShow: 2,
+  dots: false,
+  arrows: false,
+  infinite: true,
+  slidesToScroll: 1,
+  // fade: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  responsive: [
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 1,
+      }
+    }
+  ]
+});
+
+
+$('.slider_mobile_07').slick({
+  slidesToShow: 1,
+  dots: true,
+  arrows: false,
+  infinite: true,
+  slidesToScroll: 1,
+  fade: true,
+  adaptiveHeight: true
+});
+
 
 $(".slider_testimonial").slick({
   slidesToShow: 1,
@@ -339,47 +369,75 @@ $('.accordion_btn').click(function(event) {
   }
 });
 
-// Perfect Pxel
 
-$('body').each(function() {
-  var body = $(this);
-  var img_url = $(this).data('img');
-  var img = new Image();
-  img.src = img_url;
-  img.onload = function(){
-    var ppbox = '<div id="pp" style="background: url('+img_url+') no-repeat 50% 0%;top:0;width:100%;position:absolute;z-index:1000000;opacity:0.5;height:'+img.height+'px"></div>';
-    var ppbtn = '<button onclick="myOff()" id="ppbtn" style="position:fixed;top:0;right:0;z-index:1000001">ON</button>'
-    body.append(ppbox);
-    body.append(ppbtn);
+jQuery(document).ready(function($) {
+  $('.slide_one').click();
+
+  $('.tabs_control li a').click(function(event) {
+    $('.slide_one').click();
+  });
+});
+
+
+
+//First screen glitch
+
+jQuery(document).ready(function($) {
+  var viewportWidth = $(window).width();
+  if(viewportWidth > 1200){
+    setInterval(function(){
+        $('#sec_01 .glitch_wrap').toggleClass("animated");
+    }, 4000);
   };
 });
-function myOff() {
-  var ppbtntext = $('#ppbtn').text();
-  if (ppbtntext == 'ON') {
-    $('#ppbtn').text('OFF');
-    $('#pp').css('display', 'none');
-  } else {
-    $('#ppbtn').text('ON');
-    $('#pp')        .css({
-      ' z-index' : '1000000',
-      display: 'block'
+
+
+// Menu
+
+$(document).ready(function() {
+    (function() {
+      var i, resize;
+
+      i = setInterval(function() {
+        return $("#nav .wrapper").toggleClass("cross");
+    }, 1500);
+
+      $("#nav .wrapper").click(function() {
+        clearInterval(i);
+        if($('#nav').hasClass('open')){
+            return $("#nav .wrapper").addClass("cross");
+        } else {
+            return $("#nav .wrapper").removeClass("cross");
+        }
+    });
+      $('.callback').click(function(){
+        clearInterval(i);
+        $("#nav .wrapper").addClass("cross");
+      });
+  }).call(this);
+
+    $('#menu').click(function(){
+        $('#nav').toggleClass('open');
+        $('body').toggleClass('unscroll');
+        setTimeout(function() {
+          $('#nav .inner').toggleClass('open');
+        }, 600);
     });
 
-  }
-}
+    $('#nav li a').click(function(){
+      $('#nav').removeClass('open');
+      $('#nav .inner').removeClass('open');
+      $('body').removeClass('unscroll');
+      $("#nav .wrapper").removeClass("cross");
+    })
 
-$('html').keydown(function(){
-  var ppbtntext = $('#ppbtn').text();
-  if (event.keyCode == 81) {
-    if (ppbtntext == 'ON') {
-      $('#ppbtn').text('OFF');
-      $('#pp').css('display', 'none');
-    } else {
-      $('#ppbtn').text('ON');
-      $('#pp')        .css({
-        ' z-index' : '1000000',
-        display: 'block'
-      });
-    }
-  }
+    $('html').keydown(function(){
+      if (event.keyCode == 27) {
+        $('#nav').removeClass('open');
+        $('#nav .inner').removeClass('open');
+        $('body').removeClass('unscroll');
+        $("#nav .wrapper").removeClass("cross");
+      }
+    });
+
 });
