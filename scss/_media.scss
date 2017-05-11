@@ -132,8 +132,10 @@
     .header_sm{
       margin-top: 100px;
     }
-    .sec_img-1{
+    .sec_img-1, .glitch_block{
       width: 100%;
+    }
+    .glitch_block{
       margin-top: 140px;
     }
   }
@@ -191,7 +193,9 @@
     .tel, .mail{
       padding-left: 20px;
       letter-spacing: 0;
+      margin-left: -20px;
     }
+    .social{margin-left: 12px;}
   }
 }
 
@@ -250,7 +254,7 @@
   }
   #sec_08{
     padding-top: 140px;
-    .sec_img-1{width: 100%}
+    .sec_img-1, .glitch_block{width: 100%}
   }
   #sec_10{
     .file_upload{
@@ -277,6 +281,17 @@
       width: 100%;
     }
   }
+  div[id*="modal_callback"]{
+    .file_upload{
+      label{
+        width: 160px;
+        img{width:100%}
+      }
+      .label_text{
+        margin-top: 5px;
+      }
+    }
+  }
 }
 
 @media screen and (max-height: 760px){
@@ -284,6 +299,7 @@
 }
 
 @media (max-width: 767px) {
+  body{color: #777}
   [class*='col-']{width: 100%}
   .text br {display: none}
   .item--margined{margin-left: 0px;}
@@ -449,7 +465,7 @@
     .header_sm{
       margin-top: 0px;
     }
-    .sec_img-1, .sec_img-2{
+    .glitch_block, .sec_img-2{
       display: none
     }
   }
@@ -534,6 +550,10 @@
     .call_btn{
       margin-top: -80px;
     }
+    .social{
+      margin-top: 20px;
+      margin-left: 0
+    }
   }
 
 
@@ -591,6 +611,19 @@
 
 
 @media (max-width: 500px) {
+  div[id*="modal_callback"]{
+    max-width: 500px;
+    min-width: 100%;
+    .file_upload{
+      text-align: center;
+      label{float: none;}
+      .label_text{
+        float: none;
+        display: block;
+        margin-bottom: 10px;
+      }
+    }
+  }
   br{display: none !important;}
   #sec_02{
     .item_menu{
@@ -670,6 +703,8 @@
       padding: 50px 40px;
     }
     .file_upload{
+      text-align: center;
+      label{float: none;}
       .label_text{
         float: none;
         display: block;
@@ -679,7 +714,7 @@
     .timer_text_wrap{
       margin-top: 30px;
       margin-left: 10px;
-      width: 200px;
+      width: 100%;
     }
   }
   #sec_11{
@@ -693,6 +728,7 @@
   }
   #sec_12{
     padding-bottom: 40px;
+    .header{margin-top: 0;}
     h2:before{display: none}
     .tabs_control{
       margin-bottom: 85px;
@@ -709,6 +745,10 @@
           margin-left: 0;
         }
       }
+    }
+    .slider_control_mu, .slider_control_ha{
+      float: left;
+      margin-left: 25px;
     }
   }
   #sec_12 [class*='slider_event_'] .slick-next, #sec_12 [class*='slider_event_'] .slick-prev{

@@ -10,35 +10,74 @@
 
 div[id*="modal_callback"]{
   max-width: 500px;
+  min-width: 500px;
   h2{
     font-size: 29px;
     line-height: 36px;
-    margin: 30px 30px 0px;
+    margin: 30px 30px 30px;
   }
-  .h2_desc{margin-bottom: 25px;}
   .md-content{
-    padding: 20px;
+    padding: 40px;
     background: #fff;
     background-size: cover;
     text-align: center;
   }
   .form-wrap {
     display: block;
-  }
-  .field{
     max-width: 360px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    input{
-      width: 100%;
-    }
+    text-align: left;
   }
   .field+.field {
-   margin-top: 5px
+   margin-top: 20px;
   }
   .btn{
-    margin: 10px auto 0;
+    display: block;
+    margin: 40px auto 0;
+    max-width: 220px;
+    width: 100%;
+  }
+
+
+  label{
+    opacity: 0.29;
+    color: #000000;
+    font-family: $bold_font;
+    font-size: 14px;
+  }
+
+  .field+.field{
+    margin-top: 20px;
+  }
+  #upload_file_2{
+    display: none
+  }
+  .file_upload{
+    margin-top: 32px;
+    .label_text{
+      margin-top: 10px;
+      float: left;
+    }
+    label{
+      opacity: 1;
+      float: right;
+      img{
+        transition: all .3s;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+      }
+    }
+    label:hover{
+      img{
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+      }
+    }
+    label:active{
+      img{
+        box-shadow: 0 1px 1px #ffffff, inset 0 1px 1px rgba(0, 0, 0, 0.07);
+      }
+    }
   }
 }
 
@@ -128,7 +167,7 @@ div[id*="modal_politics"]{
     top: 50%;
     // margin-top: -8px;
     display: block;
-    right: 15px;
+    right: 35px;
     height: 20px;
     width: 20px;
     color: #FF6565;

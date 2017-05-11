@@ -5,6 +5,24 @@ if (localStorage.name && localStorage.email && localStorage.phone)  {
   $('input[type="tel"]').val(localStorage.phone);
 }
 
+//file format check 
+
+
+
+$("#upload_file, #upload_file_2").change(function () {
+  var fileExtension = ['doc', 'docx', 'pdf'];
+
+  if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+    $("[name=send]").attr('disabled', true);
+    alert("Файл должен быть в формате: "+fileExtension.join(', '));
+  } else if (this.files[0].size > 15728640) {
+      $("[name=send]").attr('disabled', true);
+      alert("Размер файла не должен превышать 15Mb");
+  } else {
+    $("[name=send]").attr('disabled', false);
+  }
+});
+
 $(function() {
   $("[name=send]").click(function (e) {
    var btn = $(this);
@@ -16,7 +34,7 @@ $(function() {
    var error;
    var ref = btn.closest('form').find('[required]');
    var loc = ymaps.geolocation.city+', '+ymaps.geolocation.region+', '+ymaps.geolocation.country;
-   $('[name=city').val(loc);
+   $('[name=city]').val(loc);
    var msg = btn.closest('form').find('input, textarea, select');
    var short_msg = btn.closest('form').find('[name=project_name], [name=admin_email], [name=form_subject], [name=city], [name=page_url], [name=user_agent], [type="text"], [type="email"], [type="tel"]');
    var msg = btn.closest('form').find('input, textarea, select');
@@ -61,17 +79,18 @@ $(function() {
       }
     }
   });
+
    if (!(error == 1)) {
     $(send_btn).each(function() {
       $(this).attr('disabled', true);
     });
      // Отправка в Google sheets
-     $.ajax({
-      type: 'POST',
-      url: '',
-      dataType: 'json',
-      data: msg,
-    });
+    //  $.ajax({
+    //   type: 'POST',
+    //   url: '',
+    //   dataType: 'json',
+    //   data: msg,
+    // });
     // Отправка на почту
     $.ajax({
       type: 'POST',
@@ -82,25 +101,25 @@ $(function() {
           $("[name=send]").removeAttr("disabled");
         }, 1000);
         $('div.md-show').removeClass('md-show');
-        dataLayer.push({
-          'form_type': formType,
-          'event': "form_submit"
-        });
+        // dataLayer.push({
+        //   'form_type': formType,
+        //   'event': "form_submit"
+        // });
           // Отправка в базу данных
-          $.ajax({
-           type: 'POST',
-           url: 'db/registration.php',
-           dataType: 'json',
-           data: form.serialize(),
-           success: function(response) {
-             console.info(response);
-             console.log(form.serialize());
-             if (response.status == 'success') {
-              $('form').trigger("reset");
-              window.location.href = '/success';
-            }
-          }
-        });
+        //   $.ajax({
+        //    type: 'POST',
+        //    url: 'db/registration.php',
+        //    dataType: 'json',
+        //    data: form.serialize(),
+        //    success: function(response) {
+        //      console.info(response);
+        //      console.log(form.serialize());
+        //      if (response.status == 'success') {
+        //       $('form').trigger("reset");
+        //       window.location.href = '/success';
+        //     }
+        //   }
+        // });
       },
       error: function(xhr, str) {
         console.log("Erorr")
@@ -124,7 +143,7 @@ $(function() {
 //  INPUT TEL MASK
 
 jQuery(function($){
- $("input[type='tel']").mask("+9 (999) 999-9999");
+ $("input[type='tel']").mask("+38 (099) 999-9999");
 });
 
 
@@ -132,12 +151,12 @@ jQuery(function($){
 // Scroll BAR
 
 $(window).scroll(function() {
-    // calculate the percentage the user has scrolled down the page
-    var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
+  // calculate the percentage the user has scrolled down the page
+  var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
 
-    $('.bar-long').css('width', scrollPercent +"%"  );
+  $('.bar-long').css('width', scrollPercent +"%"  );
 
-  });
+});
 
 
 //YOUTUBE
@@ -372,9 +391,13 @@ $('.accordion_btn').click(function(event) {
 
 jQuery(document).ready(function($) {
   $('.slide_one').click();
+  $('[class*="slider_event_ha"]').slick('slickGoTo', 0)
+  $('[class*="slider_event_mu"]').slick('slickGoTo', 0)
 
   $('.tabs_control li a').click(function(event) {
     $('.slide_one').click();
+    $('[class*="slider_event_ha"]').slick('slickGoTo', 0);
+    $('[class*="slider_event_mu"]').slick('slickGoTo', 0);
   });
 });
 

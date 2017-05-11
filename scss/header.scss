@@ -394,7 +394,7 @@ path#middle {
         display: block;
     }
     #sec_01{
-        .top .menu, .top .phones_block{
+        .top .menu, .top .call_btn{
             display: none;
         }
     }
@@ -437,11 +437,18 @@ path#middle {
         background-image: url(../img/sec_01-mobile_bg.png);
         padding-bottom: 0px !important;
         padding-top: 20px !important;
-        .top .menu, .top .phones_block{
+        .top .menu, .top .call_btn{
             display: none;
+        }
+        .phones_block{
+            margin: 0;
         }
         .top{
             margin-bottom: 140px;
+            .tel{
+                margin-right: 50px;
+                display: inline-block;
+            }
         }
         .glitch_wrap{
             display: none;
