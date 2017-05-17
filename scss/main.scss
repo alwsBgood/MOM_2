@@ -23,7 +23,6 @@
       margin-bottom: 17px;
     }
   }
-  
   .item_menu{
     margin-top: 118px;
     margin-left: 15px;
@@ -78,10 +77,22 @@
 #sec_03{
   padding: 150px 0 140px;
   background-color: #f2f2f6;
+
   img{
+    filter: grayscale(1);
+    cursor: pointer;
+    opacity: 0.2;
+    transition: opacity .3s, filter .3s;
+    &:hover{
+      opacity: 1;
+      filter: grayscale(0);
+    }
+  }
+  a{
+    display: inline-block;
     margin-left: 40px;
   }
-  img+img{margin-left: 98px}
+  a+a{margin-left: 98px}
   .mobile{display: none}
 }
 
@@ -440,6 +451,7 @@
       float: left;
     }
     label{
+      cursor: pointer;
       opacity: 1;
       float: right;
       img{
@@ -546,7 +558,7 @@
     width: 360px;
     height: 290px;
     float: right;
-    @include imgGlitch(img_glitch_main_sec-11, 10, 360, 290, 3, 0);
+    @include imgGlitch(img_glitch_main_sec-11, 5, 360, 290, 3, 0);
   }
 
   .header{
@@ -776,10 +788,10 @@
 }
 
 footer{
-  padding: 15px 0 15px;
+  padding: 15px 0 8px;
   background-color: #202020;
   .politics{
-    margin-top: 13px;
+    margin-top: 10px;
     a{
       color: #65666a;
       font-size: 15px;
@@ -788,9 +800,9 @@ footer{
     a+a{margin-left: 10px;}
   }
   .logo_rezart{
-    margin-top: 3px;
+    margin-top: 6px;
     margin-left: 0px;
-    width: 55px;
+    width: 48px;
     // margin-right: 20px;
     float: right;
     svg{

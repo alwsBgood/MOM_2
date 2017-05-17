@@ -23,7 +23,7 @@
     padding-bottom: 60px;
     .header_sm{margin-top:50px;}
     .col-9{text-align: center;}
-    img{margin:10px 30px !important}
+    a{margin:10px 30px !important}
   }
   #sec_04{
     padding-top: 190px;
@@ -203,7 +203,7 @@
   .text br {display: none}
   .item--margined{margin-left: 70px;}
   #sec_03{
-    img+img{margin-left: 40px}
+    a+a{margin-left: 40px}
   }
   #sec_04{
     padding-top: 140px;
@@ -344,10 +344,13 @@
       margin-top:0px;
       margin-bottom: 0px;
     }
-    img{
+    a{
+      display: block;
       max-width: 110px;
-      max-height: 40px;
       margin: 0 auto;
+      img{
+        max-height: 40px;
+      }
     }
     .mobile{display: block;}
     .desctop{display: none;}
