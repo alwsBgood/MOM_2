@@ -20,7 +20,39 @@ $("#upload_file, #upload_file_2").change(function () {
   }
 });
 
+var allowed_file_size = "1048576";
+var allowed_files = ['image/png', 'image/gif', 'image/jpeg', 'image/pjpeg'];
+var border_color = "#C2C2C2"; //initial input border color
 
+$("#contact_body").submit(function(e){
+    e.preventDefault(); //prevent default action 
+    proceed = true;     
+
+  //if everything's ok, continue with Ajax form submit
+  if(proceed){
+    var post_url = $(this).attr("action"); //get form action url
+    var request_method = $(this).attr("method"); //get form GET/POST method
+    var form_data = new FormData(this); //Creates new FormData object
+    
+    $.ajax({ //ajax form submit
+      url : post_url,
+      type: request_method,
+      data : form_data,
+      dataType : "json",
+      contentType: false,
+      cache: false,
+      processData:false
+    }).done(function(res){ //fetch server "json" messages when done
+    if(res.type == "error"){
+      console.log('error');
+    }
+
+    if(res.type == "done"){
+     console.log('done');
+   }
+ });
+  }
+});
 
 $(function() {
   $("[name=send]").click(function (e) {
@@ -79,61 +111,52 @@ $(function() {
   });
 
    if (!(error == 1)) {
-      $(send_btn).each(function() {
-        $(this).attr('disabled', true);
-      });
+    $(send_btn).each(function() {
+      $(this).attr('disabled', true);
+    });
+     // Отправка в Google sheets
+    //  $.ajax({
+    //   type: 'POST',
+    //   url: '',
+    //   dataType: 'json',
+    //   data: msg,
+    // });
+    // Отправка на почту
+    $.ajax({
+      type: 'POST',
+      url: 'mail.php',
+      data: short_msg,
+      success: function() {
+        setTimeout(function() {
+          $("[name=send]").removeAttr("disabled");
+        }, 1000);
+        $('div.md-show').removeClass('md-show');
+        console.log("Done")
+        // dataLayer.push({
+        //   'form_type': formType,
+        //   'event': "form_submit"
+        // });
+          // Отправка в базу данных
+        //   $.ajax({
+        //    type: 'POST',
+        //    url: 'db/registration.php',
+        //    dataType: 'json',
+        //    data: form.serialize(),
+        //    success: function(response) {
+        //      console.info(response);
+        //      console.log(form.serialize());
+        //      if (response.status == 'success') {
+        //       $('form').trigger("reset");
+        //       window.location.href = '/success';
+        //     }
+        //   }
+        // });
+      },
+      error: function(xhr, str) {
+        console.log("Erorr")
+      }
+    });
 
-          console.log(5)
-          // var post_url = $(this).attr("action"); //get form action url
-          var request_method = $(form).attr("method"); //get form GET/POST method
-          var form_data = new FormData(form); //Creates new FormData object
-          console.log(6)
-          $.ajax({ //ajax form submit
-            url : '/contact_me.php',
-            type: request_method,
-            data : form_data,
-            dataType : "json",
-            contentType: false,
-            cache: false,
-            processData:false
-          }).done(function(res){ //fetch server "json" messages when done
-          if(res.type == "error"){
-            console.log('error');
-          }
-
-          if(res.type == "done"){
-            $.ajax({
-              type: 'POST',
-              url: 'https://docs.google.com/forms/d/e/1FAIpQLSdsVhTBuOIfGRmHJ6puuo1ZZO_ikLpLFlro-juDEKV-dSe5ZQ/formResponse',
-              data: msg,
-              error: function() {
-              $('form').trigger("reset");
-              setTimeout(function(){  $("[name=send]").removeAttr("disabled"); }, 1000);
-                // Настройки модального окна после удачной отправки
-                $('div.md-show').removeClass('md-show');
-                $('form').trigger("reset");
-                window.location = 'http://moveonmiles.com/success/'
-              }
-            });
-         }
-       });
-
-
-    // } else {
-    //   $.ajax({
-    //     type: 'POST',
-    //     url: 'https://docs.google.com/forms/d/e/1FAIpQLSdsVhTBuOIfGRmHJ6puuo1ZZO_ikLpLFlro-juDEKV-dSe5ZQ/formResponse',
-    //     data: msg,
-    //     error: function() {
-    //     $('form').trigger("reset");
-    //     setTimeout(function(){  $("[name=send]").removeAttr("disabled"); }, 1000);
-    //       // Настройки модального окна после удачной отправки
-    //       $('div.md-show').removeClass('md-show');
-    //       $('form').trigger("reset");
-    //       window.location = 'http://moveonmiles.com/success/'
-    //     }
-    //   });
-    // }
   }
   return false;
 })
