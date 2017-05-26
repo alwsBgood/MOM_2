@@ -1,6 +1,6 @@
 <?php
-$recipient_email    = "dima.chebotaru@gmail.com"; //recepient
-$from_email         = "dima.chebotaru@gmail.com"; //from email using site domain.
+$recipient_email    = "hello@hirehunt.io";
+$from_email         = "hello@moveonmiles.com";
 
 
 if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
@@ -17,6 +17,7 @@ if($_POST){
     $message 		=  $sender_name . ' ' . $country_code;
 
     $attachments = $_FILES['file_attach'];
+
 
     $file_count = count($attachments['name']); //count total files attached
     $boundary = md5("sanwebe.com");
@@ -38,7 +39,7 @@ if($_POST){
         for ($x = 0; $x < $file_count; $x++){
             if(!empty($attachments['name'][$x])){
 
-                if($attachments['error'][$x]>0) //exit script and output error if we encounter any
+                if($attachments['error'][$x]>0)
                 {
                     $mymsg = array(
                     1=>"The uploaded file exceeds the upload_max_filesize directive in php.ini",
@@ -59,7 +60,7 @@ if($_POST){
                 $handle = fopen($attachments['tmp_name'][$x], "r");
                 $content = fread($handle, $file_size);
                 fclose($handle);
-                $encoded_content = chunk_split(base64_encode($content)); //split into smaller chunks (RFC 2045)
+                $encoded_content = chunk_split(base64_encode($content));
 
                 $body .= "--$boundary\r\n";
                 $body .="Content-Type: $file_type; name=".$file_name."\r\n";
@@ -70,7 +71,7 @@ if($_POST){
             }
         }
 
-    }else{ //send plain email otherwise
+    }else{
        $headers = "From:".$from_email."\r\n".
         "Reply-To: ".$sender_email. "\n" .
         "X-Mailer: PHP/" . phpversion();
