@@ -610,7 +610,7 @@
                     <div class="timer_inner">
                         <div class="timer_block">
                             <p class="text--purple text--title timer_header">До конца отбора <br> осталось:</p>
-<script>(function(){var _id="301f6940556630b6585dcee860dcab88";while(document.getElementById("timer"+_id))_id=_id+"0";document.write("<div id='timer"+_id+"' style='min-width:170px;height:46px;'></div>");var _t=document.createElement("script");_t.src="http://megatimer.ru/timer/timer.min.js";var _f=function(_k){var l=new MegaTimer(_id, {"view":[1,1,1,0],"type":{"currentType":"1","params":{"usertime":true,"tz":"3","utc":1496275200000}},"design":{"type":"text","params":{"number-font-family":{"family":"Gilroy-ExtraBold"},"number-font-size":"36","number-font-color":"#000000","separator-margin":"10","separator-on":true,"separator-text":":","text-on":true,"text-font-family":{"family":"Gilroy-ExtraBold"},"text-font-size":"10","text-font-color":"#000000"}},"designId":1,"theme":"white","width":170,"height":46});if(_k!=null)l.run();};_t.onload=_f;_t.onreadystatechange=function(){if(_t.readyState=="loaded")_f(1);};var _h=document.head||document.getElementsByTagName("head")[0];_h.appendChild(_t);}).call(this);</script>
+<script>(function(){var _id="301f6940556630b6585dcee860dcab88";while(document.getElementById("timer"+_id))_id=_id+"0";document.write("<div id='timer"+_id+"' style='min-width:170px;height:46px;'></div>");var _t=document.createElement("script");_t.src="http://megatimer.ru/timer/timer.min.js";var _f=function(_k){var l=new MegaTimer(_id, {"view":[1,1,1,0],"type":{"currentType":"1","params":{"usertime":true,"tz":"3","utc":1498867200000}},"design":{"type":"text","params":{"number-font-family":{"family":"Gilroy-ExtraBold"},"number-font-size":"36","number-font-color":"#000000","separator-margin":"10","separator-on":true,"separator-text":":","text-on":true,"text-font-family":{"family":"Gilroy-ExtraBold"},"text-font-size":"10","text-font-color":"#000000"}},"designId":1,"theme":"white","width":170,"height":46});if(_k!=null)l.run();};_t.onload=_f;_t.onreadystatechange=function(){if(_t.readyState=="loaded")_f(1);};var _h=document.head||document.getElementsByTagName("head")[0];_h.appendChild(_t);}).call(this);</script>
                         </div>
                     </div>
                 </div>
@@ -670,7 +670,7 @@
                             <label for="upload_file">
                                 <img src="img/upl_img.png" alt="">
                             </label>
-                            <input id="upload_file" type="file" name="file_attach[]"  />
+                            <input type="file" name="file_attach[]"  />
                             <div class="clear"></div>
                         </div>
 
@@ -1388,7 +1388,7 @@
                     <label for="upload_file">
                         <img src="img/upl_img.png" alt="">
                     </label>
-                    <input id="upload_file_2" type="file" name="file_attach[]"  />
+                    <input type="file" name="file_attach[]"  />
                     <div class="clear"></div>
                 </div>
 
@@ -1537,6 +1537,27 @@ drift.SNIPPET_VERSION = '0.3.1';
 drift.load('vyp44hwhangs');
 </script>
 <!-- End of Async Drift Code -->
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '622782417912634');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1"
+src="https://www.facebook.com/tr?id=622782417912634&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
 
 </div>
 </body>

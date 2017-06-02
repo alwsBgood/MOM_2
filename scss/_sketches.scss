@@ -390,3 +390,5 @@ input:-ms-input-placeholder{
   color: #000;
   font: 16px/24px $bold_font;
 }
+
+input[type="file"]{opacity: 0;}
