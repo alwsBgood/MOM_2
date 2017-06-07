@@ -670,7 +670,7 @@
                             <label for="upload_file">
                                 <img src="img/upl_img.png" alt="">
                             </label>
-                            <input type="file" name="file_attach[]"  />
+                            <input id="upload_file" type="file" name="file_attach[]"  />
                             <div class="clear"></div>
                         </div>
 
@@ -1385,10 +1385,10 @@
 
                 <div class="file_upload">
                     <p class="text--title label_text title">Загрузить CV:</p>
-                    <label for="upload_file">
+                    <label for="upload_file_02">
                         <img src="img/upl_img.png" alt="">
                     </label>
-                    <input type="file" name="file_attach[]"  />
+                    <input id="upload_file_02" type="file" name="file_attach[]"  />
                     <div class="clear"></div>
                 </div>
 
